@@ -1,0 +1,45 @@
+{
+    "name": "justbetter/magento2-xhprof-profiler",
+    "description": "Xhprof profiler integration for Magento",
+    "keywords": [
+        "justbetter",
+        "magento",
+        "buggregator",
+        "xhprof"
+    ],
+    "type": "magento2-module",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.2",
+        "magento/framework": "*",
+        "magento/module-config": "^101.2",
+        "spiral-packages/profiler": "^1.2"
+    },
+    "repositories": {
+        "magento": {
+            "type": "composer",
+            "url": "https://repo-magento-mirror.fooman.co.nz/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Robin Mulder",
+            "email": "robin@justbetter.nl",
+            "homepage": "https://justbetter.nl",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "JustBetter\\XhprofProfiler\\": "" },
+        "files": [ "registration.php" ]
+    },
+    "require-dev": {
+        "bitexpert/phpstan-magento": "^0.30.1",
+        "phpstan/phpstan": "^1.10"
+    },
+    "config": {
+        "allow-plugins": {
+            "magento/composer-dependency-version-audit-plugin": true
+        }
+    }
+}
