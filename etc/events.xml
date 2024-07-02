@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
-    <event name="controller_action_predispatch">
-        <observer name="JustBetter_XhprofProfiler::start_xhprof" instance="JustBetter\XhprofProfiler\Observer\StartXhprof" />
-    </event>
-    <event name="controller_action_postdispatch">
-        <observer name="JustBetter_XhprofProfiler::stop_xhprof" instance="JustBetter\XhprofProfiler\Observer\StopXhprof" />
-    </event>
-</config>

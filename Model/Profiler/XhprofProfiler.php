@@ -2,12 +2,12 @@
 
 namespace JustBetter\XhprofProfiler\Model\Profiler;
 
+use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\Exception\FileSystemException;
 use Magento\Framework\Exception\RuntimeException;
 use SpiralPackages\Profiler\Driver\XhprofDriver;
 use SpiralPackages\Profiler\Storage\WebStorage;
 use Symfony\Component\HttpClient\NativeHttpClient;
-use Magento\Framework\App\DeploymentConfig;
 
 class XhprofProfiler
 {
