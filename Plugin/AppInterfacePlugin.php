@@ -27,7 +27,10 @@ class AppInterfacePlugin
 
         $this->profiler->handle();
         $response = $proceed();
-        $this->profiler->terminate(['uri' => $this->request->getUriString()]);
+        $this->profiler->terminate([
+            'method' => $this->request->getMethod(),
+            'uri' => $this->request->getUriString()
+        ]);
         return $response;
     }
 
