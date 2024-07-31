@@ -27,7 +27,7 @@ class AppInterfacePlugin
 
         $this->profiler->handle();
         $response = $proceed();
-        $this->profiler->terminate();
+        $this->profiler->terminate(['uri' => $this->request->getUriString()]);
         return $response;
     }
 
@@ -37,6 +37,6 @@ class AppInterfacePlugin
             return filter_var($this->request->getHeader(XhprofProfiler::HEADER), FILTER_VALIDATE_BOOLEAN);
         }
 
-        return isset($_ENV['XHPROF_ENABLED']) && is_bool($_ENV['XHPROF_ENABLED']) ? $_ENV['XHPROF_ENABLED'] : false;
+        return isset($_ENV['XHPROF_ENABLED']) ? (bool) $_ENV['XHPROF_ENABLED'] : false;
     }
 }
