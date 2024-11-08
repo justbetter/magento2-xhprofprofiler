@@ -1,4 +1,5 @@
 <?php
+
 namespace JustBetter\XhprofProfiler\Plugin;
 
 use JustBetter\XhprofProfiler\Model\Profiler\XhprofProfiler;
@@ -9,17 +10,20 @@ use Throwable;
 
 class AppInterfacePlugin
 {
+    public const HEADER = 'X-Xhprof-Enabled';
+
     public function __construct(
         protected XhprofProfiler $profiler,
-        protected Http $request
+        protected Http           $request
     )
     {
     }
 
     public function aroundLaunch(
         Application $subject,
-        callable $proceed,
-    ) : ResponseInterface {
+        callable    $proceed,
+    ): ResponseInterface
+    {
 
         if (!$this->isEnabled()) {
             return $proceed();
@@ -34,12 +38,12 @@ class AppInterfacePlugin
         return $response;
     }
 
-    public function isEnabled(): bool
+    private function isEnabled(): bool
     {
-        if ($this->request->getHeader(XhprofProfiler::HEADER)) {
-            return filter_var($this->request->getHeader(XhprofProfiler::HEADER), FILTER_VALIDATE_BOOLEAN);
+        if ($this->request->getHeader(self::HEADER)) {
+            return filter_var($this->request->getHeader(self::HEADER), FILTER_VALIDATE_BOOLEAN);
         }
 
-        return isset($_ENV['XHPROF_ENABLED']) ? (bool) $_ENV['XHPROF_ENABLED'] : false;
+        return isset($_ENV['XHPROF_ENABLED']) ? (bool)$_ENV['XHPROF_ENABLED'] : false;
     }
 }
