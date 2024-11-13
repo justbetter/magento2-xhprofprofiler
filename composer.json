@@ -13,7 +13,8 @@
         "php": ">=8.2",
         "magento/framework": "*",
         "magento/module-config": "^101.2",
-        "spiral-packages/profiler": "^1.2"
+        "spiral-packages/profiler": "^1.2",
+        "perftools/php-profiler": "^1.1"
     },
     "repositories": {
         "magento": {

@@ -3,4 +3,22 @@
     <type name="Magento\Framework\AppInterface">
         <plugin name="JustBetter_XhprofProfiler::profile" type="JustBetter\XhprofProfiler\Plugin\AppInterfacePlugin" sortOrder="1" />
     </type>
+    <type name="JustBetter\XhprofProfiler\Model\Profiler\XhprofProfiler">
+        <arguments>
+            <argument name="driver" xsi:type="object">JustBetter\XhprofProfiler\Model\Profiler\Driver\XHGui</argument>
+        </arguments>
+    </type>
+    <type name="JustBetter\XhprofProfiler\Model\Profiler\Driver\XHGui">
+        <arguments>
+            <argument name="config" xsi:type="array">
+                <item name="profiler" xsi:type="string">xhprof</item>
+                <item name="save.handler" xsi:type="string">upload</item>
+                <item name="save.handler.upload" xsi:type="array">
+                    <item name="url" xsi:type="string">http://127.0.0.1:8142/run/import</item>
+                    <item name="timeout" xsi:type="number">3</item>
+                    <item name="token" xsi:type="string">token</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config>
